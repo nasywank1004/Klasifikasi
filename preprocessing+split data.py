@@ -76,6 +76,10 @@ os.makedirs(test_folder, exist_ok=True)
 
 # Fungsi untuk membagi dataset menjadi train dan test
 def split_data(dataset_path, train_folder, test_folder, test_size=0.2):
+    total_images_before_split = 0
+    total_train_images = 0
+    total_test_images = 0
+    
     # Loop untuk setiap kategori emosi dalam dataset
     for emotion_folder in os.listdir(dataset_path):
         emotion_folder_path = os.path.join(dataset_path, emotion_folder)
@@ -90,9 +94,17 @@ def split_data(dataset_path, train_folder, test_folder, test_size=0.2):
             
             # Ambil semua gambar dalam folder kategori
             image_files = [f for f in os.listdir(emotion_folder_path) if os.path.isfile(os.path.join(emotion_folder_path, f))]
+            num_images = len(image_files)
+            total_images_before_split += num_images
             
             # Split data: 80% untuk training, 20% untuk testing
             train_files, test_files = train_test_split(image_files, test_size=test_size, random_state=42)
+            
+            # Hitung jumlah gambar di set training dan testing untuk kategori ini
+            num_train = len(train_files)
+            num_test = len(test_files)
+            total_train_images += num_train
+            total_test_images += num_test
             
             # Pindahkan file ke folder training dan testing
             for file in train_files:
@@ -100,8 +112,14 @@ def split_data(dataset_path, train_folder, test_folder, test_size=0.2):
             
             for file in test_files:
                 shutil.copy(os.path.join(emotion_folder_path, file), os.path.join(emotion_test_folder, file))
+            
+            # Print jumlah gambar sebelum dan setelah split untuk setiap kategori
+            print(f"Kategori '{emotion_folder}': Total gambar sebelum split: {num_images}, "
+                  f"Training: {num_train}, Testing: {num_test}")
     
-    print("Dataset berhasil dibagi menjadi training dan testing.")
+    # Print total gambar sebelum dan setelah split
+    print(f"\nTotal gambar di seluruh dataset sebelum split: {total_images_before_split}")
+    print(f"Total gambar setelah split - Training: {total_train_images}, Testing: {total_test_images}")
 
 # Memanggil fungsi untuk membagi dataset
 split_data(dataset_path, train_folder, test_folder, test_size=0.2)
