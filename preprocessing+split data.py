@@ -65,7 +65,7 @@ import shutil
 from sklearn.model_selection import train_test_split
 
 # Path utama ke folder Dataset
-dataset_path = r'D:\SEMESTER 7\COMPUTER VISION\Github Comvis\Klasifikasi\Dataset'
+dataset_path = r'D:\SEMESTER 7\COMPUTER VISION\Github Comvis\Klasifikasi\Dataset_CLAHE'
 train_folder = r'D:\SEMESTER 7\COMPUTER VISION\Github Comvis\Klasifikasi\Dataset_train'
 test_folder = r'D:\SEMESTER 7\COMPUTER VISION\Github Comvis\Klasifikasi\Dataset_testing'
 
