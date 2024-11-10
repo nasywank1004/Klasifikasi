@@ -1,0 +1,100 @@
+[
+    {
+        "label": "cv2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cv2",
+        "description": "cv2",
+        "detail": "cv2",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "apply_clahe",
+        "kind": 2,
+        "importPath": "preprocessing+split data",
+        "description": "preprocessing+split data",
+        "peekOfCode": "def apply_clahe(image):\n    # Membuat objek CLAHE\n    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))\n    # Menerapkan CLAHE pada gambar grayscale\n    clahe_image = clahe.apply(image)\n    return clahe_image\n#%%\n# Fungsi untuk menyimpan gambar tanpa ICC profile (tetap menggunakan PNG)\ndef save_image(image, output_path):\n    # Pastikan gambar hanya memiliki satu channel (grayscale)",
+        "detail": "preprocessing+split data",
+        "documentation": {}
+    },
+    {
+        "label": "save_image",
+        "kind": 2,
+        "importPath": "preprocessing+split data",
+        "description": "preprocessing+split data",
+        "peekOfCode": "def save_image(image, output_path):\n    # Pastikan gambar hanya memiliki satu channel (grayscale)\n    if len(image.shape) == 2:  # Cek apakah citra grayscale\n        # Menyimpan gambar dalam format PNG (tanpa ICC profile)\n        cv2.imwrite(output_path, image)\n    else:\n        print(f\"Skipping {output_path}: Image is not grayscale.\")\n#%%\n# Loop melalui setiap folder (kategori emosi)\nfor emotion_folder in os.listdir(dataset_path):",
+        "detail": "preprocessing+split data",
+        "documentation": {}
+    },
+    {
+        "label": "split_data",
+        "kind": 2,
+        "importPath": "preprocessing+split data",
+        "description": "preprocessing+split data",
+        "peekOfCode": "def split_data(dataset_path, train_folder, test_folder, test_size=0.2):\n    total_images_before_split = 0\n    total_train_images = 0\n    total_test_images = 0\n    # Loop untuk setiap kategori emosi dalam dataset\n    for emotion_folder in os.listdir(dataset_path):\n        emotion_folder_path = os.path.join(dataset_path, emotion_folder)\n        # Periksa apakah path adalah folder\n        if os.path.isdir(emotion_folder_path):\n            # Buat folder untuk setiap kategori di train dan test",
+        "detail": "preprocessing+split data",
+        "documentation": {}
+    },
+    {
+        "label": "dataset_path",
+        "kind": 5,
+        "importPath": "preprocessing+split data",
+        "description": "preprocessing+split data",
+        "peekOfCode": "dataset_path = r'D:\\SEMESTER 7\\COMPUTER VISION\\Github Comvis\\Klasifikasi\\Dataset'\n#%%\n# Fungsi untuk menerapkan CLAHE pada citra grayscale\ndef apply_clahe(image):\n    # Membuat objek CLAHE\n    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))\n    # Menerapkan CLAHE pada gambar grayscale\n    clahe_image = clahe.apply(image)\n    return clahe_image\n#%%",
+        "detail": "preprocessing+split data",
+        "documentation": {}
+    },
+    {
+        "label": "dataset_path",
+        "kind": 5,
+        "importPath": "preprocessing+split data",
+        "description": "preprocessing+split data",
+        "peekOfCode": "dataset_path = r'D:\\SEMESTER 7\\COMPUTER VISION\\Github Comvis\\Klasifikasi\\Dataset_CLAHE'\ntrain_folder = r'D:\\SEMESTER 7\\COMPUTER VISION\\Github Comvis\\Klasifikasi\\Dataset_train'\ntest_folder = r'D:\\SEMESTER 7\\COMPUTER VISION\\Github Comvis\\Klasifikasi\\Dataset_testing'\n# %%\n# Membuat folder untuk training dan testing\nos.makedirs(train_folder, exist_ok=True)\nos.makedirs(test_folder, exist_ok=True)\n# Fungsi untuk membagi dataset menjadi train dan test\ndef split_data(dataset_path, train_folder, test_folder, test_size=0.2):\n    total_images_before_split = 0",
+        "detail": "preprocessing+split data",
+        "documentation": {}
+    },
+    {
+        "label": "train_folder",
+        "kind": 5,
+        "importPath": "preprocessing+split data",
+        "description": "preprocessing+split data",
+        "peekOfCode": "train_folder = r'D:\\SEMESTER 7\\COMPUTER VISION\\Github Comvis\\Klasifikasi\\Dataset_train'\ntest_folder = r'D:\\SEMESTER 7\\COMPUTER VISION\\Github Comvis\\Klasifikasi\\Dataset_testing'\n# %%\n# Membuat folder untuk training dan testing\nos.makedirs(train_folder, exist_ok=True)\nos.makedirs(test_folder, exist_ok=True)\n# Fungsi untuk membagi dataset menjadi train dan test\ndef split_data(dataset_path, train_folder, test_folder, test_size=0.2):\n    total_images_before_split = 0\n    total_train_images = 0",
+        "detail": "preprocessing+split data",
+        "documentation": {}
+    },
+    {
+        "label": "test_folder",
+        "kind": 5,
+        "importPath": "preprocessing+split data",
+        "description": "preprocessing+split data",
+        "peekOfCode": "test_folder = r'D:\\SEMESTER 7\\COMPUTER VISION\\Github Comvis\\Klasifikasi\\Dataset_testing'\n# %%\n# Membuat folder untuk training dan testing\nos.makedirs(train_folder, exist_ok=True)\nos.makedirs(test_folder, exist_ok=True)\n# Fungsi untuk membagi dataset menjadi train dan test\ndef split_data(dataset_path, train_folder, test_folder, test_size=0.2):\n    total_images_before_split = 0\n    total_train_images = 0\n    total_test_images = 0",
+        "detail": "preprocessing+split data",
+        "documentation": {}
+    }
+]
