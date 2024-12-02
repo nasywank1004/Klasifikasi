@@ -1,4 +1,4 @@
-# Klasifikasi dengan Menggunakan MobileNet
+# Klasifikasi dengan Menggunakan MobileNet dan LSTM
 Klasifikasi ini menggunakan dataset Natural Human Face Images for Emotion Recognition yang memiliki 5558 citra. Dataset ini membagi emosi manusia menjadi 8, yaitu anger, contempt, disgust, fear, happiness, neutrality, sadness dan surprise. Dibawah ini tahapan yang dilakukan untuk melakukan klasifikasi pada dataset ini.
 
 a. Preprocessing (Enhancement menggunakan CLAHE)
